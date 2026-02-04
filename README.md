@@ -1,59 +1,94 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚀 AI Code Reviewer - Qwen2.5 Local LLM
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![GitHub stars](https://img.shields.io/github/stars/kavitsheth/ai-code-reviewer-?style=social)](https://github.com/kavitsheth/ai-code-reviewer-)
+[![License](https://img.shields.io/github/license/kavitsheth/ai-code-reviewer-)](LICENSE)
 
-## About Laravel
+**Instant AI-powered code fixes** in **5 languages** - **100% LOCAL** (No API keys, No cloud!)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🎯 **Demo**
+❌ Issues:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Syntax errors: #import <stdio.h> should be #include <iostream>. cout::Hello should be cout << "Hello";.
+📊 Complexity Analysis: Current: Time O(1), Space O(1) Improved: Time O(1), Space O(1)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+✅ Recommended Fix:
 
-## Learning Laravel
+#include <iostream>
+using namespace std;
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+int main() {
+    cout << "Hello";
+    return 0;
+}
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## ✨ **Features**
+- ✅ **5 Languages**: PHP,JavaScript, Python, C++, Java, TypeScript
+- ✅ **Local AI**: Qwen2.5-Coder-3B (~2GB GGUF model)
+- ✅ **Real-time syntax highlighting**
+- ✅ **Production-ready fixes** (complete imports/headers)
+- ✅ **No external APIs** - Works offline!
 
-### Premium Partners
+## 🏗️ **Tech Stack**
+Frontend: Html , CSS , Jquery , Blade
+Backend: Express.js (Port 3000) → FastAPI (Port 8000)
+AI: Qwen2.5-Coder-7B-Instruct-Q6_K + llama-cpp-python
+Model: Qwen2.5-Coder-7B-Instruct-Q6_K.gguf (~ 6.26 GB)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
 
-## Contributing
+## 🚀 **Quick Start (3 Terminals)**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### **Prerequisites**
+```bash
+# System requirements
+Node.js 18+ | Python 3.10+ | 8GB RAM (for Qwen2.5 model)
+1. Clone & Setup
+git clone https://github.com/kavitsheth/ai-code-reviewer.git
 
-## Code of Conduct
+2. AI Backend (FastAPI + Qwen2.5) - Terminal 1
+cd ai-local-service
+pip install -r requirements.txt
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Download model (~2GB, one-time)
+mkdir -p models
+# Download: Qwen2.5-Coder-7B-Instruct-Q6_K.gguf
+# HF Link: https://huggingface.co/bartowski/Qwen2.5-Coder-7B-Instruct-GGUF/blob/main/Qwen2.5-Coder-7B-Instruct-Q6_K.gguf
 
-## Security Vulnerabilities
+# Start FastAPI
+python local_llm_api.py
+if not works tey this : uvicorn local_llm_api:app --host 0.0.0.0 --port 8000 --reload
+# http://localhost:8000/docs (API docs)
+3. Laravel - Terminal 2
+cd ..
+php artisan serve --port 8002
+# http://127.0.0.1:8002/
+5. Open Browser
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+http://localhost:8002 ← Your AI Code Reviewer!
+🧪 Usage Examples
+Language	Input Code	AI Output
+C++	print("Hello");	#include <iostream> std::cout << "Hello" << std::endl;
+Python	print "Hello"	print("Hello")
+JavaScript	print("Hello");	console.log("Hello");
+Java	print("Hello");	System.out.println("Hello");
 
-## License
+🤝 Contributing
+Fork repository
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+git checkout -b feature/amazing-feature
+
+Commit changes: git commit -m "Add amazing feature"
+
+Push: git push origin feature/amazing-feature
+
+Open Pull Request
+
+📄 License
+MIT License - Use freely!
+
+👨‍💻 Author
+Kavit Sheth - Full Stack AI Developer
+LinkedIn | Portfolio
+
+⭐ Star this repo if you found it useful! 🚀
