@@ -42,7 +42,7 @@ Model: Qwen2.5-Coder-7B-Instruct-Q6_K.gguf (~ 6.26 GB)
 ### **Prerequisites**
 ```bash
 # System requirements
-Node.js 18+ | Python 3.10+ | 8GB RAM (for Qwen2.5 model)
+PHP 8.5 | Laravel 12+ | Python 3.10+ | 8GB RAM (for Qwen2.5 model)
 1. Clone & Setup
 git clone https://github.com/kavitsheth/ai-code-reviewer.git
 
