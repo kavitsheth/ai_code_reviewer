@@ -1,7 +1,7 @@
 # 🚀 AI Code Reviewer - Qwen2.5 Local LLM
 
-[![GitHub stars](https://img.shields.io/github/stars/kavitsheth/ai-code-reviewer-?style=social)](https://github.com/kavitsheth/ai-code-reviewer-)
-[![License](https://img.shields.io/github/license/kavitsheth/ai-code-reviewer-)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/kavitsheth/ai_code_reviewer?style=social)](https://github.com/kavitsheth/ai_code_reviewer)
+[![License](https://img.shields.io/github/license/kavitsheth/ai_code_reviewer))](LICENSE)
 
 **Instant AI-powered code fixes** in **5 languages** - **100% LOCAL** (No API keys, No cloud!)
 
